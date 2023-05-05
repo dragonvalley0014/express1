@@ -68,7 +68,7 @@ app.get('/showdata', (req, res) => {
         const db = client.db(dbName);
         console.log("Collection accessed");
 
-        db.collection(collectionName).find({}).toArray()
+        db.collection(collectionName).find({}, {projection: {_id:0, name:1, mobile:1, gender:1}}).toArray()
         .then((doc) => {
             console.log(doc);
             client.close();
