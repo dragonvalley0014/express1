@@ -12,21 +12,32 @@ class myform extends React.Component{
         }
     }
 
+    changeHandler = (event) => {
+        this.setState({[event.target.name]: event.target.value})
+
+        // alert(JSON.stringify(this.state))
+    }
+
+    submitHandler = (event) => {
+        event.preventDefault();
+        
+        alert(`From submitted with ${JSON.stringify(this.state)}`)
+    }
     render(){
         return(
-            <form>
+            <form onSubmit={this.submitHandler}>
                 <table>
                     <tr>
                         <td><label>name:</label></td>
-                        <td><input type="text" name="name"/></td>
+                        <td><input type="text" name="name" onChange={this.changeHandler}/></td>
                     </tr>
                     <tr>
                         <td><label>mobile:</label></td>
-                        <td><input type="number" name="mobile"/></td>
+                        <td><input type="number" name="mobile" onChange={this.changeHandler}/></td>
                     </tr>
                     <tr>
                         <td><label>gender:</label></td>
-                        <td><select name="gender">
+                        <td><select name="gender" onChange={this.changeHandler}> 
                                   <option>male</option>
                                   <option>female</option>
                                   <option>other</option>
