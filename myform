@@ -1,0 +1,44 @@
+import React from "react";
+
+class myform extends React.Component{
+    constructor(props)
+    {
+        super(props)
+
+        this.state ={
+            name:'',
+            mobile:'',
+            gender:''
+        }
+    }
+
+    render(){
+        return(
+            <form>
+                <table>
+                    <tr>
+                        <td><label>name:</label></td>
+                        <td><input type="text" name="name"/></td>
+                    </tr>
+                    <tr>
+                        <td><label>mobile:</label></td>
+                        <td><input type="number" name="mobile"/></td>
+                    </tr>
+                    <tr>
+                        <td><label>gender:</label></td>
+                        <td><select name="gender">
+                                  <option>male</option>
+                                  <option>female</option>
+                                  <option>other</option>
+                            </select></td>
+                    </tr>
+                    <tr>
+                    <td><input type="submit" value={"SAVE DATA"} /></td>
+                    </tr>
+                </table>
+            </form>
+        )
+    }
+}
+
+export default myform
